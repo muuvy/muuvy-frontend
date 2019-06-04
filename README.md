@@ -1,5 +1,7 @@
 # muuvy frontend app
 
+[![Build Status](https://travis-ci.com/muuvy/app-frontend.svg?branch=dev)](https://travis-ci.com/muuvy/app-frontend) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=muuvy_app-frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=muuvy_app-frontend)
+
 ## Table of Contents
 
 - Introduction
