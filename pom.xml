@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.muuvy.frontend</groupId>
     <artifactId>app-frontend</artifactId>
-    <name>app-frontend</name>
+    <name>Muuvy Frontend Application</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
