@@ -1,0 +1,41 @@
+.MovieItem {
+    border-bottom: 1px solid black;
+    &:last-child {
+        border-bottom: none;
+    }
+    &Button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: 90px 1fr 20px;
+        grid-template-rows: repeat(3, auto);
+        padding: 10px 0;
+        grid-column-gap: 20px;
+    }
+
+    &Cover {
+        grid-row: 1 / -1;
+        background: red;
+        width: 100%;
+    }
+
+    &Button > h3 {
+        grid-row: 1;
+    }
+    &MetaData {
+        grid-row: 2;
+    }
+    &Rating {
+        grid-row: 3;
+    }
+
+    &OpenDetailsIcon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-row: 1 / -1;
+        font-weight: 900;
+        font-size: 20px;
+    }
+}
