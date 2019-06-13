@@ -66,6 +66,12 @@ class Navigation extends React.PureComponent<{}, NavigationState> {
         ></Nav>
     }
 
+    private onDismiss = () => {
+        this.setState({
+            showNavigationPane: false
+        });
+    }
+
     public render(): JSX.Element[] {
         return [
             <NavButton key='NavButton' onClick={this.openNavigation} />,
@@ -73,7 +79,9 @@ class Navigation extends React.PureComponent<{}, NavigationState> {
                 key='NavPanel'
                 isOpen={this.state.showNavigationPane}
                 type={PanelType.smallFixedFar}
-                onDismiss={() => {this.setState({showNavigationPane: false})}}
+                onDismiss={this.onDismiss}
+                isLightDismiss={true}
+                onLightDismissClick={this.onDismiss}
                 headerText="Menu"
                 closeButtonAriaLabel="Close"
             >{this.renderNavigationContent()}</Panel>

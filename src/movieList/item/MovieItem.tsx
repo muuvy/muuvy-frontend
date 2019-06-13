@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as DTO from '../../dto/DTO';
 
 import styles from './MovieItem.module.scss';
+import { Icon } from 'office-ui-fabric-react';
 
 export interface MovieItemProps {
     movie: DTO.Movie;
@@ -33,7 +34,7 @@ export class MovieItem extends React.PureComponent<MovieItemProps> {
               <h3>{this.props.movie.title}</h3>
               <div className={styles.MovieItemMetaData}><span>{this.props.movie.duration} min</span> | <span>{this.props.movie.categories.join(', ')}</span></div>
               <div className={styles.MovieItemRating}>
-                <span className={styles.MovieItemRatingStar}></span>
+                <Icon className={styles.MovieItemRatingStar} iconName='FavoriteStarFill' />
                 <span className={styles.MovieItemRatingText}>Rating: <span>{this.props.movie.rating}</span></span>
               </div>
               {this.renderOpenDetails()}
