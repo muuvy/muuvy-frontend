@@ -29,6 +29,13 @@
     }
     &Rating {
         grid-row: 3;
+        display: flex;
+        align-items: center;
+    }
+
+    &RatingStar {
+        color: gold;
+        margin-right: 10px;
     }
 
     &OpenDetailsIcon {
