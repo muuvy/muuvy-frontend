@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './NavButton.module.scss';
+import {IconButton} from 'office-ui-fabric-react';
 
 export interface NavButtonProps {
     onClick: () => void;
@@ -8,6 +8,6 @@ export interface NavButtonProps {
 export class NavButton extends React.PureComponent<NavButtonProps> {
 
     public render(): JSX.Element {
-        return <button title="Open close Navigation" className={styles.NavButton} onClick={this.props.onClick}></button>;
+        return <IconButton iconProps={{ iconName: 'CollapseMenu' }} title="Menu" ariaLabel="Open Menu" onClick={this.props.onClick} />;
     }
 }

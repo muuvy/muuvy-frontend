@@ -1,5 +1,6 @@
 .MovieItem {
     border-bottom: 1px solid black;
+    list-style: none;
     &:last-child {
         border-bottom: none;
     }

@@ -5,16 +5,28 @@ import styles from './MovieItem.module.scss';
 
 export interface MovieItemProps {
     movie: DTO.Movie;
-    onOpenDetails: (id: string) => void;
+    onOpenDetails?: (movie: DTO.Movie) => void;
 }
 
 export class MovieItem extends React.PureComponent<MovieItemProps> {
 
     private onOpenDetails = () => {
-        this.props.onOpenDetails(this.props.movie.id);
+        if(this.props.onOpenDetails) {
+            this.props.onOpenDetails(this.props.movie);
+        }
     }
 
-    public render(): JSX.Element {
+    private renderOpenDetails(): JSX.Element | null {
+        if(this.props.onOpenDetails) {
+            return <div className={styles.MovieItemOpenDetailsIcon}>></div>;
+        }
+        return null;
+    }
+
+    public render(): JSX.Element | null {
+        if (this.props.movie == null) {
+            return null;
+        }
         return <li className={styles.MovieItem}>
             <div role="button" className={styles.MovieItemButton} onClick={this.onOpenDetails}>
               <img className={styles.MovieItemCover} src={this.props.movie.imgUrl} alt="Movie Cover" />
@@ -24,7 +36,7 @@ export class MovieItem extends React.PureComponent<MovieItemProps> {
                 <span className={styles.MovieItemRatingStar}></span>
                 <span className={styles.MovieItemRatingText}>Rating: <span>{this.props.movie.rating}</span></span>
               </div>
-              <div className={styles.MovieItemOpenDetailsIcon}>></div>
+              {this.renderOpenDetails()}
             </div>
         </li>;
     }

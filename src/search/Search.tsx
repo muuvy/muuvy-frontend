@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {SearchBox, PrimaryButton} from 'office-ui-fabric-react';
 
 class Search extends React.PureComponent {
 
@@ -9,8 +10,19 @@ class Search extends React.PureComponent {
 
     public render(): JSX.Element[] {
         return [
-            <input type="text" aria-label="search movie" className="Search__Input" placeholder="Enter text here" />,
-            <button type="button">Search</button>
+            <SearchBox
+                key='SearchBox'
+                placeholder="Search a Movie here"
+                onSearch={newValue => console.log('value is ' + newValue)}
+                onFocus={() => console.log('onFocus called')}
+                onBlur={() => console.log('onBlur called')}
+                onChange={() => console.log('onChange called')}
+            />,
+            <PrimaryButton
+                key='SearchButton'
+                text="Search"
+                onClick={this.onSearch}
+          />
         ];
     }
 }

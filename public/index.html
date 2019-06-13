@@ -41,45 +41,55 @@
 
       body {
         display: grid;
-        grid-template-rows: 50px 25px 1fr;
+        grid-template-rows: 60px 32px 1fr;
         grid-template-columns: 1fr 50px;
         grid-row-gap: 10px;
-        padding: 10px;
         overflow: hidden;
       }
 
       .Header {
         display: flex;
+        padding: 10px 10px 0;
       }
       .Header__Logo {
         width: 50px;
         height: 50px;
         display: inline-block;
-        background: black;
       }
 
       .Header > h1 {
         margin: 0;
-        padding-left: 20px;
+        padding-left: 10px;
         font-weight: 500;
         display: inline;
       }
 
+      .Navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
       .Search {
         grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        grid-column-gap: 10px;
+        padding: 0 10px;
       }
 
       .Container {
         grid-column: 1 / -1;
         background: gree;
         overflow: auto;
+        padding: 0 10px 10px;
       }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <header class="Header">
-      <span title="muuvy logo" class="Header__Logo"></span>
+      <img title="muuvy logo" class="Header__Logo" src="./logo.png" />
       <h1 class="Header__Title">muuvy</h1>
     </header>
     <div id="navigation" class="Navigation"></div>

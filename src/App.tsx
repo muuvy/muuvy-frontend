@@ -1,10 +1,23 @@
 import React from 'react';
 import * as DTO from './dto/DTO';
 import {MovieList} from './movieList/MovieList';
+import {MovieDetails} from './detailsModal/MovieDetails';
 
 import './App.css';
 
-export default class App extends React.PureComponent {
+interface AppState {
+    selectedMovie: DTO.Movie | null;
+}
+
+export default class App extends React.PureComponent<{}, AppState> {
+
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            selectedMovie: null
+        }
+    }
+
     private getMockedMovies(): DTO.Movie[] {
         const mocks: DTO.Movie[] = [];
         for(let i = 0; i < 10; i++) {
@@ -14,7 +27,8 @@ export default class App extends React.PureComponent {
                 categories: ["Drama", "Crime"],
                 duration: Math.floor(Math.random() * 180) + 1,
                 rating: Math.floor(Math.random() * 10) + 1,
-                imgUrl: "https://m.media-amazon.com/images/M/MV5BMTQzOTUyODMyOV5BMl5BanBnXkFtZTcwNzY2MzU1MQ@@._V1_.jpg"
+                imgUrl: "https://m.media-amazon.com/images/M/MV5BMTQzOTUyODMyOV5BMl5BanBnXkFtZTcwNzY2MzU1MQ@@._V1_.jpg",
+                content: "The aging patriarch of an organized crime dynsty transfers control of his clandestine empire to his reluctant son."
             });
         }
         return mocks;
@@ -22,9 +36,10 @@ export default class App extends React.PureComponent {
 
     public render(): JSX.Element[] {
         return [
-            <h2>Popular Movies</h2>,
-            <div className="Content">
-                <MovieList movies={this.getMockedMovies()} onOpenDetails={(id) => console.log('movie clicked', id)} />
+            <h2 key='h2title'>Popular Movies</h2>,
+            <div key='content' className="Content">
+                <MovieList movies={this.getMockedMovies()} onOpenDetails={(movie) => this.setState({selectedMovie: movie})} />
+                <MovieDetails movie={this.state.selectedMovie} onPanelClose={() => this.setState({selectedMovie: null})} />
             </div>
         ];
     }

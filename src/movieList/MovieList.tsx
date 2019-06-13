@@ -7,7 +7,7 @@ import styles from './MovieList.module.scss';
 
 export interface MovieListProps {
     movies: DTO.Movie[];
-    onOpenDetails: (id: string) => void;
+    onOpenDetails: (movie: DTO.Movie) => void;
 }
 
 export class MovieList extends React.PureComponent<MovieListProps> {

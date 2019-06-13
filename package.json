@@ -11,7 +11,8 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "typescript": "3.5.1",
-    "node-sass": "4.12.0"
+    "node-sass": "4.12.0",
+    "office-ui-fabric-react": "7.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
