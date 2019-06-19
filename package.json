@@ -2,9 +2,10 @@
   "name": "muuvy-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://muuvy.github.io/muuvy-frontend/",
+  "homepage": "https://muuvy.github.io/muuvy-frontend",
   "dependencies": {
     "dotenv": "^8.0.0",
+    "gh-pages": "2.0.1",
     "node-sass": "4.12.0",
     "office-ui-fabric-react": "^7.4.1",
     "react": "^16.8.6",
@@ -16,10 +17,16 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "analyse": "node analyse.js"
+    "analyse": "node analyse.js",
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "resolutions": {
+    "browserslist": "4.6.2",
+    "caniuse-lite": "1.0.30000974"
   },
   "browserslist": {
     "production": [
