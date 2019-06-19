@@ -1,18 +1,16 @@
 const scanner = require("sonarqube-scanner");
+require('dotenv').config();
 
 scanner(
   {
-    // this example uses local instance of SQ
     serverUrl: "https://sonarcloud.io",
     options: {
-      "sonar.projectVersion": "0.0.1",
+      "sonar.projectKey": "muuvy_muuvy-frontend",
+      "sonar.organization": "muuvy",
       "sonar.sources": "src",
-      "sonar.exclusions":"**/*.test.*",
-      "sonar.tests": "src",
-      "sonar.test.inclusions": "**/*.test.*/**",
-      "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
-      "sonar.testExecutionReportPaths": "test-report.xml"
-    },
+      "sonar.host.url": "https://sonarcloud.io",
+      "sonar.login": process.env.SONAR_TOKEN
+    }
   },
   () => {
     // callback is required

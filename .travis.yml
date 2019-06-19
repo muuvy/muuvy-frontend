@@ -1,12 +1,16 @@
 language: node_js
 node_js:
   - "stable"
+
+before_install:
+  - npm install -g sonar-scanner
+
 cache:
   directories:
   - node_modules
 script:
   - npm run test
-  - npm run sonarqube -Dsonar.login=$SONAR_TOKEN
+  - npm run analyse
   - npm run build
   
 deploy:
