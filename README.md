@@ -1,5 +1,7 @@
 # Muuvy Frontend
 
+[Muuvy App](https://muuvy.github.io/muuvy-frontend/)
+
 ## Table of Contents
 
 * Setup
