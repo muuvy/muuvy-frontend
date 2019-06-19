@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - "stable"
+
+before_install:
+  - npm install -g sonar-scanner
+  
 cache:
   directories:
   - node_modules
