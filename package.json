@@ -3,22 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "24.0.13",
-    "@types/node": "12.0.8",
-    "@types/react": "16.8.19",
-    "@types/react-dom": "16.8.4",
+    "node-sass": "4.12.0",
+    "office-ui-fabric-react": "^7.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "typescript": "3.5.1",
-    "node-sass": "4.12.0",
-    "office-ui-fabric-react": "7.1.0"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "analyse": "node analyse.js",
+    "sonarqube": "sonarqube-scanner -Dsonar.login=5365f8872e33b556aad8493d86df46effe8fe3ce"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +31,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-test-renderer": "^16.8.2",
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.8",
+    "@types/react": "16.8.19",
+    "@types/react-dom": "16.8.4",
+    "jest-sonar-reporter": "^2.0.0",
+    "react-test-renderer": "^16.8.6",
+    "sonarqube-scanner": "^2.4.1",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.17.0",
+    "tslint-sonarts": "^1.9.0",
+    "typescript": "3.5.1"
   }
 }
