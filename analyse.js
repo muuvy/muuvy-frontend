@@ -1,15 +1,16 @@
 const scanner = require("sonarqube-scanner");
+require('dotenv').config();
 
 scanner(
   {
     // this example uses local instance of SQ
     serverUrl: "https://sonarcloud.io",
     options: {
-      "sonar.projectKey":"muuvy_muuvy-frontend",
-      "sonar.organization":"muuvy",
-      "sonar.sources":"src",
+      "sonar.projectKey": "muuvy_muuvy-frontend",
+      "sonar.organization": "muuvy",
+      "sonar.sources": "src",
       "sonar.host.url": "https://sonarcloud.io",
-      "sonar.login": "5365f8872e33b556aad8493d86df46effe8fe3ce"
+      "sonar.login": process.env.SONAR_TOKEN
     }
   },
   () => {

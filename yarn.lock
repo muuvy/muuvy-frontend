@@ -3678,6 +3678,11 @@ dotenv@6.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
+dotenv@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.0.0.tgz#ed310c165b4e8a97bb745b0a9d99c31bda566440"
+  integrity sha512-30xVGqjLjiUOArT4+M5q9sYdvuR4riM6yK9wMcas9Vbp6zZa+ocC9dp6QoftuhTPhFAiLK/0C5Ni2nou/Bk8lg==
+
 download@7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/download/-/download-7.0.0.tgz#8711f09174b11d8ded14840d1881e3d05190195c"
@@ -3927,6 +3932,11 @@ eslint-plugin-react@7.12.4:
     object.fromentries "^2.0.0"
     prop-types "^15.6.2"
     resolve "^1.9.0"
+
+eslint-plugin-sonarjs@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.4.0.tgz#85b7dce10b9a464fb1062f0afc88694b6faaba84"
+  integrity sha512-l8E4ueMKVtEcocINHSNVH/YBSmDDXZlPEbud7bagRGyoCeB0otoyltoro5kdnIvVzS5usUwvjzMocHnPax2FEw==
 
 eslint-scope@3.7.1:
   version "3.7.1"
