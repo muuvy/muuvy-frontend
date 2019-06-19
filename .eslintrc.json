@@ -3,10 +3,6 @@
         "browser": true,
         "es6": true
     },
-<<<<<<< HEAD
-    "extends": "airbnb",
-=======
->>>>>>> dev
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -19,12 +15,8 @@
         "sourceType": "module"
     },
     "plugins": [
-<<<<<<< HEAD
-        "react"
-=======
         "react",
         "sonarjs"
->>>>>>> dev
     ],
     "rules": {
     }
