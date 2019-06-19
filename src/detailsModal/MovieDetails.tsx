@@ -18,7 +18,7 @@ export class MovieDetails extends React.PureComponent<MovieDetailsProps> {
 
     private renderMovieContent(): JSX.Element | null {
         if (this.props.movie != null){
-            return <div className={styles.MovieDetailsContent}>{this.props.movie.content as String}</div>;
+            return <div className={styles.MovieDetailsContent}>{this.props.movie.content as string}</div>;
         }
         return null;
     }

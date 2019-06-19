@@ -5,14 +5,12 @@ scanner(
     // this example uses local instance of SQ
     serverUrl: "https://sonarcloud.io",
     options: {
-      "sonar.projectVersion": "0.0.1",
-      "sonar.sources": "src",
-      "sonar.exclusions":"**/*.test.*",
-      "sonar.tests": "src",
-      "sonar.test.inclusions": "**/*.test.*/**",
-      "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
-      "sonar.testExecutionReportPaths": "test-report.xml"
-    },
+      "sonar.projectKey":"muuvy_muuvy-frontend",
+      "sonar.organization":"muuvy",
+      "sonar.sources":"src",
+      "sonar.host.url": "https://sonarcloud.io",
+      "sonar.login": "5365f8872e33b556aad8493d86df46effe8fe3ce"
+    }
   },
   () => {
     // callback is required
