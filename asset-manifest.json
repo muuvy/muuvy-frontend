@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/muuvy-frontend/static/css/main.c13cf409.chunk.css",
+    "main.js": "/muuvy-frontend/static/js/main.a539e1f7.chunk.js",
+    "main.js.map": "/muuvy-frontend/static/js/main.a539e1f7.chunk.js.map",
+    "runtime~main.js": "/muuvy-frontend/static/js/runtime~main.e7a07fad.js",
+    "runtime~main.js.map": "/muuvy-frontend/static/js/runtime~main.e7a07fad.js.map",
+    "static/js/2.42e45057.chunk.js": "/muuvy-frontend/static/js/2.42e45057.chunk.js",
+    "static/js/2.42e45057.chunk.js.map": "/muuvy-frontend/static/js/2.42e45057.chunk.js.map",
+    "index.html": "/muuvy-frontend/index.html",
+    "precache-manifest.0b5d49bf14af37fb7d613163b05b39bf.js": "/muuvy-frontend/precache-manifest.0b5d49bf14af37fb7d613163b05b39bf.js",
+    "service-worker.js": "/muuvy-frontend/service-worker.js",
+    "static/css/main.c13cf409.chunk.css.map": "/muuvy-frontend/static/css/main.c13cf409.chunk.css.map"
+  }
+}
