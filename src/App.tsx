@@ -1,9 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import * as DTO from './dto/DTO';
 import {MovieList} from './movieList/MovieList';
 import {MovieDetails} from './detailsModal/MovieDetails';
 
 import './App.css';
+import LoginPage from './login/Login';
 
 interface AppState {
     selectedMovie: DTO.Movie | null;
@@ -36,11 +38,16 @@ export default class App extends React.PureComponent<{}, AppState> {
 
     public render(): JSX.Element[] {
         return [
-            <h2 key='h2title'>Popular Movies</h2>,
-            <div key='content' className="Content">
-                <MovieList movies={this.getMockedMovies()} onOpenDetails={(movie) => this.setState({selectedMovie: movie})} />
-                <MovieDetails movie={this.state.selectedMovie} onPanelClose={() => this.setState({selectedMovie: null})} />
-            </div>
+            <Router>
+                <Route path="/Login" component={LoginPage} />
+                <Route path="/" exact>
+                    <h2 key='h2title'>Popular Movies</h2>,
+                    <div key='content' className="Content">
+                        <MovieList movies={this.getMockedMovies()} onOpenDetails={(movie) => this.setState({selectedMovie: movie})} />
+                        <MovieDetails movie={this.state.selectedMovie} onPanelClose={() => this.setState({selectedMovie: null})} />
+                    </div>
+                </Route>
+            </Router>
         ];
     }
 }
