@@ -1,0 +1,27 @@
+.LayoutContainer {
+  display: grid;
+  grid-template-rows: 60px 32px 1fr;
+  grid-template-columns: 1fr 50px;
+  grid-row-gap: 10px;
+}
+
+.Navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Search {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-column-gap: 10px;
+  padding: 0 10px;
+}
+
+.Container {
+  grid-column: 1 / -1;
+  background: gree;
+  overflow: auto;
+  padding: 0 10px 10px;
+}
