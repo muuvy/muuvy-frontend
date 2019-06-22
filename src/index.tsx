@@ -3,13 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {initNavigation} from './navigation/Navigation';
-import {initSearch} from './search/Search';
 import { initializeIcons } from '@uifabric/icons';
 
 initializeIcons();
-initNavigation();
-initSearch();
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

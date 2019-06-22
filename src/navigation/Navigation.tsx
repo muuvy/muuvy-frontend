@@ -1,13 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 import { NavButton } from './button/NavButton';
 import {Nav, Panel, PanelType} from 'office-ui-fabric-react';
+
 
 interface NavigationState {
     showNavigationPane: boolean;
 }
 
-class Navigation extends React.PureComponent<{}, NavigationState> {
+export default class Navigation extends React.PureComponent<{}, NavigationState> {
 
     constructor(props: any) {
         super(props)
@@ -87,9 +88,5 @@ class Navigation extends React.PureComponent<{}, NavigationState> {
             >{this.renderNavigationContent()}</Panel>
         ];
     }
-}
-
-export function initNavigation(): void {
-    ReactDOM.render(<Navigation />, document.getElementById('navigation'));
 }
 

@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {SearchBox, PrimaryButton} from 'office-ui-fabric-react';
 
-class Search extends React.PureComponent {
+export default class Search extends React.PureComponent {
 
     public onSearch = () => {
         //TODO update url (react router)
@@ -26,8 +25,3 @@ class Search extends React.PureComponent {
         ];
     }
 }
-
-export function initSearch(): void {
-    ReactDOM.render(<Search />, document.getElementById('search'));
-}
-

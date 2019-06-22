@@ -4,7 +4,6 @@ import { MovieItem } from './item/MovieItem';
 
 import styles from './MovieList.module.scss';
 
-
 export interface MovieListProps {
     movies: DTO.Movie[];
     onOpenDetails: (movie: DTO.Movie) => void;
