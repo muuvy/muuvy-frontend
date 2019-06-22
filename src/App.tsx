@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Router } from 'react-router';
+import { Route } from 'react-router-dom';
 import * as DTO from './dto/DTO';
 import {MovieList} from './movieList/MovieList';
 import {MovieDetails} from './detailsModal/MovieDetails';
-
+import history from './history';
 import './App.css';
 import LoginPage from './login/Login';
 
@@ -38,9 +39,9 @@ export default class App extends React.PureComponent<{}, AppState> {
 
     public render(): JSX.Element[] {
         return [
-            <Router>
-                <Route path="/Login" component={LoginPage} />
-                <Route path="/" exact>
+            <Router history={history}>
+                <Route path="/" exact component={LoginPage} />
+                <Route path="/home" exact>
                     <h2 key='h2title'>Popular Movies</h2>,
                     <div key='content' className="Content">
                         <MovieList movies={this.getMockedMovies()} onOpenDetails={(movie) => this.setState({selectedMovie: movie})} />

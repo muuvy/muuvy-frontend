@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './Login.css';
 import muuvyLogo from './img/logo.png';
+import history from '../history';
 
 class LoginPage extends Component {
   constructor() {
@@ -32,10 +33,11 @@ class LoginPage extends Component {
       fullName: this.state.username
       })
       .then(function (response) {
-        console.log(response);
+        history.push('/home');
       })
       .catch(function (error) {
         console.log(error);
+        history.push('/error')
       });
     }
 
