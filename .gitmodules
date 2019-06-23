@@ -1,0 +1,8 @@
+[submodule "muuvy-backend"]
+	path = muuvy-backend
+	url = https://github.com/muuvy/muuvy-backend.git
+	branch = master
+[submodule "database"]
+	path = database
+	url = https://github.com/muuvy/database.git
+	branch = master
