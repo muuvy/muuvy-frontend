@@ -15,6 +15,21 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'muuvy-frontend-sonar'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'muuvy_app-frontend'
+    cliProjectName: 'muuvy-frontend'
+    cliSources: '.'
+
+- task: SonarQubeAnalyze@4
+
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
+
 - script: |
     npm install
     npm run build
@@ -26,7 +41,7 @@ steps:
     Contents: |
       build/**
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    
+   
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
