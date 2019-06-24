@@ -1,6 +1,6 @@
 # Muuvy Frontend
 
-[![Build Status](https://travis-ci.org/muuvy/muuvy-frontend.svg?branch=master)](https://travis-ci.org/muuvy/muuvy-frontend)
+[![Build Status](https://dev.azure.com/lucahost/muuvy-frontend/_apis/build/status/muuvy.muuvy-frontend?branchName=master)](https://dev.azure.com/lucahost/muuvy-frontend/_build/latest?definitionId=2&branchName=master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=muuvy_muuvy-frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=muuvy_muuvy-frontend)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=muuvy_muuvy-frontend&metric=coverage)](https://sonarcloud.io/dashboard?id=muuvy_muuvy-frontend)
 
