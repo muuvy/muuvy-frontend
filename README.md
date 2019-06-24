@@ -19,6 +19,18 @@
 * use `yarn run start` or `npm start` to debug app
 * open [http://localhost:3000](http://localhost:3000)
 
+## Microservices
+
+This repository has links to the master branches of all microservices we have so can develop from one single repository. Use the following make targets to build/start the services:
+
+```bash
+make pull # Updates all submodules to the latest master branch
+make build # Builds all microservices
+make start_database # Starts the database
+make start_backend # Starts the database
+make start_database # Starts the database
+```
+
 ## Test
 
 use `yarn run test` or `npm test` to run the tests
