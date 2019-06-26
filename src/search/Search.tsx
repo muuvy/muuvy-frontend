@@ -1,10 +1,13 @@
 import React from 'react';
 import {SearchBox, PrimaryButton} from 'office-ui-fabric-react';
 
+import TMDBAPI from '../tmdb-api';
+
+
 export default class Search extends React.PureComponent {
 
     public onSearch = () => {
-        //TODO update url (react router)
+        TMDBAPI.get('/search?api_key=');
     }
 
     public render(): JSX.Element[] {

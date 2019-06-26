@@ -1,15 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useState } from 'react';
 
-import API from './../api';
+import API from '../muuvy-api';
 
-import { AxiosResponse, AxiosError } from 'axios';
 import styles from './Login.module.scss';
 import muuvyLogo from './../img/logo.png';
 import history from '../history';
+import { User } from '../dto/DTO';
 
 interface LoginState {
   username?: string,
-  error?: string
+  error?: string,
+  user?: User,
 }
 
 export default class Login extends PureComponent<{}, LoginState> {
@@ -29,27 +30,27 @@ export default class Login extends PureComponent<{}, LoginState> {
     this.setState({ error: '' });
   }
 
-  handleSubmit(evt: any) {
+  async handleSubmit(evt: any) {
     evt.preventDefault();
 
     if (!this.state.username) {
       return this.setState({ error: 'Username is required' });
     }
     else {
-      // POST to API-Service
-      API.post('login/', {
-        fullName: this.state.username
-      })
-        .then(function (response: AxiosResponse) {
-          history.push('/home');
-        })
-        .catch(function (error: AxiosError) {
-          console.log(error);
-          history.push('/error')
+      try {
+        const res = await API.post('login', {
+          fullName: this.state.username
         });
+        debugger;
+        this.setState({ user: res.data });
+        history.push('/home');
+        this.setState({ error: '' });
+      }
+      catch (error) {
+        console.log(error);
+        history.push('/error')
+      }
     }
-
-    return this.setState({ error: '' });
   }
 
   handleUserChange(evt: any) {

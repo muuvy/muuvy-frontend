@@ -5,7 +5,7 @@ import Navigation from './../navigation/Navigation';
 import { MovieList } from './../movieList/MovieList';
 import { MovieDetails } from './../detailsModal/MovieDetails';
 import Search from './../search/Search';
-import * as DTO from './../dto/DTO';
+import * as DTO from '../dto/DTO';
 
 import styles from './Layout.module.scss'
 

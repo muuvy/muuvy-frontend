@@ -7,3 +7,15 @@ export interface Movie {
     imgUrl: string;
     content?: string;
 }
+
+export interface User {
+    id: string;
+    fullName: string;
+    apiKey: string;
+    favorites: Favorite[];
+}
+
+export interface Favorite{
+    id: string;
+    movieId: string;
+}
