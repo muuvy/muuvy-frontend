@@ -1,17 +1,20 @@
-import React from 'react';
-import {SearchBox, PrimaryButton} from 'office-ui-fabric-react';
+import React, { useContext } from 'react';
+import { SearchBox, PrimaryButton } from 'office-ui-fabric-react';
 
 import TMDBAPI from '../tmdb-api';
+import { UserContext } from "../context";
+import { User } from '../dto/DTO';
 
 
-export default class Search extends React.PureComponent {
+export default function Search() {
+    const user: User = useContext(UserContext).user;
 
-    public onSearch = () => {
-        TMDBAPI.get('/search?api_key=');
+    function onSearch() {
+        TMDBAPI.get('/search?api_key=' + user.apiKey);
     }
 
-    public render(): JSX.Element[] {
-        return [
+    return (
+        <div>
             <SearchBox
                 key='SearchBox'
                 placeholder="Search a Movie here"
@@ -19,12 +22,12 @@ export default class Search extends React.PureComponent {
                 onFocus={() => console.log('onFocus called')}
                 onBlur={() => console.log('onBlur called')}
                 onChange={() => console.log('onChange called')}
-            />,
+            />
             <PrimaryButton
                 key='SearchButton'
                 text="Search"
-                onClick={this.onSearch}
-          />
-        ];
-    }
+                onClick={() => onSearch()}
+            />
+        </div>
+    );
 }

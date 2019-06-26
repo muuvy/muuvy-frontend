@@ -1,8 +1,7 @@
 import React, { createContext, useState } from "react";
 import PropTypes from "prop-types";
-import { User } from "../dto/DTO";
 
-export const Context = createContext({});
+export const Context = createContext({ user: {id: "", fullName: "", apiKey: "", favorites: []}});
 
 export const Provider = (props: any) => {
     const {
@@ -11,18 +10,14 @@ export const Provider = (props: any) => {
     } = props;
     const [user, setUser] = useState(initialUser);
 
-    const addNewUser = (user: User) => {
-        setUser({ user: user });
-    };
-
-    // Make the context object:
     const userContext = {
         user,
-        setUser,
-        addNewUser
+        setUser
     };
 
-    //return <Context.Provider value={ userContext }> { children } < /Context.Provider>;  
+    return (
+        <Context.Provider value={userContext}>{children}</Context.Provider>
+    );
 };
 
 export const { Consumer } = Context;
@@ -32,5 +27,5 @@ Provider.propTypes = {
 };
 
 Provider.defaultProps = {
-    user: {}
+    user: { id: "", fullName: "", apiKey: "", favorites: [] }
 };

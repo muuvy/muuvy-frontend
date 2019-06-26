@@ -10,17 +10,13 @@ body {
   box-sizing: border-box;
 }
 
-.AppWrapper {
-  width: 100%;
-  height: 100%;
-}
-
-.AppHeader {
-  width: 100%;
-}
-
-.AppLogo {
-  width: 150px;
+.AppLogin {
+  z-index: 999;
+  position: absolute;
+  width: 300px;
+  top: 50%;
+  margin: -125px 0 0 -150px;
+  left: 50%;
 }
 
 .LogoArea {
@@ -48,11 +44,6 @@ body {
   display: inline;
 }
 
-.LoginForm {
-  float: left;
-  width: 300px;
-}
-
 .LogoCenter {
   margin: 0 auto;
   display: flex;
@@ -60,25 +51,19 @@ body {
   width: auto;
 }
 
-.signInLabel {
+.LoginForm {
+  float: left;
+  width: 300px;
+}
+
+.SignInLabel {
   margin: 25px 0px 10px;
   text-align: center;
   font-size: 110%;
   font-weight: bold;
 }
 
-.LoginForm label,
-.LoginForm input {
-  width: 100%;
-}
-
-.LoginForm label {
-  margin: 15px 0px;
-  color: #adb4bb;
-  font-size: small;
-}
-
-.LoginForm input {
+.LoginInput {
   width: 100%;
   background-color: #e8ebef;
   border: 1px solid #e8ebef;
@@ -87,7 +72,8 @@ body {
   margin: 10px 0px 0px;
 }
 
-.LoginForm #submit {
+
+.SubmitButton {
   width: 100%;
   background-color: #1676f4;
   border: 1px solid #1676f4;
@@ -97,26 +83,17 @@ body {
   margin: 10px 0px;
 }
 
-.AppLogin {
-  z-index: 999;
-  position: absolute;
-  width: 300px;
-  top: 50%;
-  margin: -125px 0 0 -150px;
-  left: 50%;
-}
-
 .Applink {
   color: #61dafb;
 }
 
-.LoginError {
+.LoginErrorButton {
   color: #ff0000;
   padding: 10px 0px;
   margin: 0;
 }
 
-.LoginError span {
+.LoginErrorLabel {
   position: relative;
   font-size: 12px;
   top: 2px;
