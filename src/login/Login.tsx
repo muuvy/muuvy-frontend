@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
-import axios from 'axios';
+
+import API from './../api';
+
+import { AxiosResponse, AxiosError } from 'axios';
 import styles from './Login.module.scss';
 import muuvyLogo from './../img/logo.png';
 import history from '../history';
@@ -34,13 +37,13 @@ export default class Login extends PureComponent<{}, LoginState> {
     }
     else {
       // POST to API-Service
-      axios.post('https://muuvy.ch/api/user/login/', {
+      API.post('login/', {
         fullName: this.state.username
       })
-        .then(function (response) {
+        .then(function (response: AxiosResponse) {
           history.push('/home');
         })
-        .catch(function (error) {
+        .catch(function (error: AxiosError) {
           console.log(error);
           history.push('/error')
         });
