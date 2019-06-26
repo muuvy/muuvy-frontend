@@ -9,7 +9,7 @@ import { UserContext } from "../context";
 export default function Login() {
   const [userName, setUsername] = useState('');
   const [error, setError] = useState('');
-  const userContext : any = useContext(UserContext);
+  const userContext: any = useContext(UserContext);
 
   async function handleSubmit(evt: any) {
     evt.preventDefault();

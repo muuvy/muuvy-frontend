@@ -5,16 +5,19 @@ import { MovieItem } from './item/MovieItem';
 import styles from './MovieList.module.scss';
 
 export interface MovieListProps {
-    movies: DTO.Movie[];
+    movies: DTO.Movie[] | null;
     onOpenDetails: (movie: DTO.Movie) => void;
 }
 
 export class MovieList extends React.PureComponent<MovieListProps> {
 
-    private renderMovies(): JSX.Element[] {
-        return this.props.movies.map((movie: DTO.Movie): JSX.Element => {
-            return <MovieItem movie={movie} onOpenDetails={this.props.onOpenDetails} key={movie.id} />;
-        });
+    private renderMovies(): JSX.Element[] | null {
+        if (this.props.movies != null) {
+            return this.props.movies.map((movie: DTO.Movie): JSX.Element => {
+                return <MovieItem movie={movie} onOpenDetails={this.props.onOpenDetails} key={movie.id} />;
+            });
+        }
+        return null;
     }
 
     public render(): JSX.Element {

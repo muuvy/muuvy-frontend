@@ -11,6 +11,7 @@ import styles from './Layout.module.scss'
 
 interface LayoutState {
     selectedMovie: DTO.Movie | null;
+    movies: DTO.Movie[] | null;
 }
 
 export default class Layout extends React.PureComponent<{}, LayoutState> {
@@ -18,7 +19,8 @@ export default class Layout extends React.PureComponent<{}, LayoutState> {
     constructor(props: any){
         super(props);
         this.state = {
-            selectedMovie : null
+            selectedMovie : null,
+            movies : this.getMockedMovies()
         };
     }
 
@@ -47,11 +49,11 @@ export default class Layout extends React.PureComponent<{}, LayoutState> {
                     <Navigation />
                 </div>
                 <div className={styles.Search}>
-                    <Search />
+                    <Search onSearchResult={(searchRes) => this.setState({movies: searchRes})}/>
                 </div>
                 <div className={styles.Container}>
                     <h2 key='h2title'>Popular Movies</h2>
-                    <MovieList movies={this.getMockedMovies()} onOpenDetails={(movie) => this.setState({ selectedMovie: movie })} />
+                    <MovieList movies={this.state.movies} onOpenDetails={(movie) => this.setState({ selectedMovie: movie })} />
                     <MovieDetails movie={this.state.selectedMovie} onPanelClose={() => this.setState({ selectedMovie: null })} />
                 </div>
             </div>
