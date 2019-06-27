@@ -9,14 +9,12 @@ import { UserContextProvider } from './context';
 export default class App extends React.PureComponent {
     public render() {
         return (
-            <div>
-                <UserContextProvider>
-                    <Router history={history}>
-                        <Route path="/" exact component={Login} />
-                        <Route path="/home" component={Layout} />
-                    </Router>
-                </UserContextProvider>
-            </div>
+            <UserContextProvider>
+                <Router history={history}>
+                    <Route path="/" exact component={Login} />
+                    <Route path="/home" component={Layout} />
+                </Router>
+            </UserContextProvider>
         )
     }
 }
