@@ -1,16 +1,19 @@
 import React from 'react';
 
 import { NavButton } from './button/NavButton';
-import {Nav, Panel, PanelType} from 'office-ui-fabric-react';
+import { Nav, Panel, PanelType, INavLink } from 'office-ui-fabric-react';
 
+interface NavigationProps {
+    onNavigationClick: (navigationTarget: string | undefined) => void;
+}
 
 interface NavigationState {
     showNavigationPane: boolean;
 }
 
-export default class Navigation extends React.PureComponent<{}, NavigationState> {
+export default class Navigation extends React.PureComponent<NavigationProps, NavigationState> {
 
-    constructor(props: any) {
+    constructor(props: NavigationProps) {
         super(props)
         this.state = {
             showNavigationPane: false
@@ -23,47 +26,58 @@ export default class Navigation extends React.PureComponent<{}, NavigationState>
         });
     }
 
+    public navigateToFavourites = (navigationTarget: string | undefined) => {
+        this.props.onNavigationClick(navigationTarget);
+        this.setState({
+            showNavigationPane: false
+        });
+    }
+
+    public onLinkClick(ev?: React.MouseEvent<HTMLElement>, item?: INavLink) {
+        if (item !== null && item !== undefined) {
+            this.navigateToFavourites(item.key);
+        }
+    }
+
     private renderNavigationContent(): JSX.Element {
         return <Nav
             selectedKey="key3"
+            onLinkClick={(ev, item) => this.onLinkClick(ev, item)}
             groups={[
                 {
-                  links: [
-                    {
-                        name: 'Top Rated',
-                        url: 'http://cnn.com',
-                        key: 'key1',
-                        target: '_blank'
-                    },
-                    {
-                        name: 'Coming Soon',
-                        url: 'http://cnn.com',
-                        key: 'key2',
-                        target: '_blank'
-                    },
-                    {
-                        name: 'Most Popular',
-                        url: 'http://cnn.com',
-                        key: 'key3',
-                        target: '_blank'
-                    },
-                    {
-                      name: 'Your Profile',
-                      url: 'http://example.com',
-                      links: [
+                    links: [
                         {
-                          name: 'Favorite',
-                          url: 'http://msn.com',
-                          icon: 'FavoriteStar',
-                          key: 'key4',
-                          target: '_blank'
+                            name: 'Top Rated',
+                            url: '#',
+                            key: 'top-rated',
+                        },
+                        {
+                            name: 'Coming Soon',
+                            url: '#',
+                            key: 'coming-soon',
+                        },
+                        {
+                            name: 'Most Popular',
+                            url: '#',
+                            key: 'most-popular',
+                        },
+                        {
+                            name: 'Your Profile',
+                            url: '#',
+                            key: 'profile',
+                            links: [
+                                {
+                                    name: 'Favorites',
+                                    url: '#',
+                                    icon: 'FavoriteStar',
+                                    key: 'favorites',
+                                }
+                            ],
+                            isExpanded: true
                         }
-                      ],
-                      isExpanded: true
-                    }
-                  ]
+                    ]
                 }
-              ]}
+            ]}
         ></Nav>
     }
 
@@ -89,4 +103,3 @@ export default class Navigation extends React.PureComponent<{}, NavigationState>
         ];
     }
 }
-

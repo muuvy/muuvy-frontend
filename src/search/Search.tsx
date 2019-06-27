@@ -22,7 +22,7 @@ export default function Search(props: SearchProps) {
                     {
                         id: m.id,
                         title: m.title,
-                        duration: 1,
+                        duration: m.runtime,
                         categories: m.genre_ids,
                         rating: m.vote_average,
                         imgUrl: 'https://image.tmdb.org/t/p/original' + m.poster_path,
