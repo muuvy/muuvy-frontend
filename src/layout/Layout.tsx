@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './Header';
 import Navigation from './../navigation/Navigation';
 import { MovieList } from './../movieList/MovieList';
-import { MovieDetails } from './../detailsModal/MovieDetails';
+import MovieDetails from './../detailsModal/MovieDetails';
 import Search from './../search/Search';
 import * as DTO from '../dto/DTO';
 
@@ -16,11 +16,11 @@ interface LayoutState {
 
 export default class Layout extends React.PureComponent<{}, LayoutState> {
 
-    constructor(props: any){
+    constructor(props: any) {
         super(props);
         this.state = {
-            selectedMovie : null,
-            movies : this.getMockedMovies()
+            selectedMovie: null,
+            movies: this.getMockedMovies()
         };
     }
 
@@ -49,7 +49,7 @@ export default class Layout extends React.PureComponent<{}, LayoutState> {
                     <Navigation />
                 </div>
                 <div className={styles.Search}>
-                    <Search onSearchResult={(searchRes) => this.setState({movies: searchRes})}/>
+                    <Search onSearchResult={(searchRes) => this.setState({ movies: searchRes })} />
                 </div>
                 <div className={styles.Container}>
                     <h2 key='h2title'>Popular Movies</h2>

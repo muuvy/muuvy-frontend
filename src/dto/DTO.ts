@@ -15,7 +15,6 @@ export interface User {
     favorites: Favorite[];
 }
 
-export interface Favorite{
-    id: string;
+export interface Favorite {
     movieId: string;
 }
