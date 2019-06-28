@@ -46,16 +46,98 @@ export default function Layout() {
                     setMovies(tmdbMovies);
                     return;
                 }
+            } else if (link === 'most-popular') {
+                let popularMovies = await getPopularMovies();
+                let tmdbMovies: DTO.Movie[] = [];
+                if (popularMovies != null) {
+                    for (const popularMovie of popularMovies) {
+                        tmdbMovies.push(
+                            {
+                                id: popularMovie.id,
+                                title: popularMovie.title,
+                                duration: popularMovie.runtime,
+                                categories: popularMovie.genre_ids,
+                                rating: popularMovie.vote_average,
+                                imgUrl: 'https://image.tmdb.org/t/p/original' + popularMovie.poster_path,
+                                content: popularMovie.overview
+                            }
+                        )
+                    }
+                    setMovies(tmdbMovies);
+                    return;
+                }
+            } else if (link === 'coming-soon') {
+                let comingSoonMovies = await getComingSoonMovies();
+                let tmdbMovies: DTO.Movie[] = [];
+                if (comingSoonMovies != null) {
+                    for (const comingSoonMovie of comingSoonMovies) {
+                        tmdbMovies.push(
+                            {
+                                id: comingSoonMovie.id,
+                                title: comingSoonMovie.title,
+                                duration: comingSoonMovie.runtime,
+                                categories: comingSoonMovie.genre_ids,
+                                rating: comingSoonMovie.vote_average,
+                                imgUrl: 'https://image.tmdb.org/t/p/original' + comingSoonMovie.poster_path,
+                                content: comingSoonMovie.overview
+                            }
+                        )
+                    }
+                    setMovies(tmdbMovies);
+                    return;
+                }
+            } else if (link === 'top-rated') {
+                let topRatedMovies = await getTopRatedMovies();
+                let tmdbMovies: DTO.Movie[] = [];
+                if (topRatedMovies != null) {
+                    for (const topRatedMovie of topRatedMovies) {
+                        tmdbMovies.push(
+                            {
+                                id: topRatedMovie.id,
+                                title: topRatedMovie.title,
+                                duration: topRatedMovie.runtime,
+                                categories: topRatedMovie.genre_ids,
+                                rating: topRatedMovie.vote_average,
+                                imgUrl: 'https://image.tmdb.org/t/p/original' + topRatedMovie.poster_path,
+                                content: topRatedMovie.overview
+                            }
+                        )
+                    }
+                    setMovies(tmdbMovies);
+                    return;
+                }
             } else {
                 setMovies(getMockedMovies());
             }
         }
     }
 
-    async function getTmdbMovieById(movieId: string) {
+    async function getPopularMovies() {
         try {
-            let result = await TMDBAPI.get(`/movie/${movieId}?api_key=${user.apiKey}`);
-            return result.data;
+            let result = await TMDBAPI.get(`/movie/popular?api_key=${user.apiKey}`);
+            return result.data.results;
+        }
+        catch (httpError) {
+            console.log(httpError);
+        }
+        return null;
+    }
+
+    async function getTopRatedMovies() {
+        try {
+            let result = await TMDBAPI.get(`/movie/top_rated?api_key=${user.apiKey}`);
+            return result.data.results;
+        }
+        catch (httpError) {
+            console.log(httpError);
+        }
+        return null;
+    }
+
+    async function getComingSoonMovies() {
+        try {
+            let result = await TMDBAPI.get(`/movie/upcoming?api_key=${user.apiKey}`);
+            return result.data.results;
         }
         catch (httpError) {
             console.log(httpError);
@@ -66,6 +148,17 @@ export default function Layout() {
     async function getFavorites() {
         try {
             let result = await API.get(`/users/${user.id}/favourites`);
+            return result.data;
+        }
+        catch (httpError) {
+            console.log(httpError);
+        }
+        return null;
+    }
+
+    async function getTmdbMovieById(movieId: string) {
+        try {
+            let result = await TMDBAPI.get(`/movie/${movieId}?api_key=${user.apiKey}`);
             return result.data;
         }
         catch (httpError) {
