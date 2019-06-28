@@ -51,15 +51,16 @@ export default function Layout() {
                 let tmdbMovies: DTO.Movie[] = [];
                 if (popularMovies != null) {
                     for (const popularMovie of popularMovies) {
+                        let tmdbMovie: any = await getTmdbMovieById(popularMovie.id);
                         tmdbMovies.push(
                             {
-                                id: popularMovie.id,
-                                title: popularMovie.title,
-                                duration: popularMovie.runtime,
-                                categories: popularMovie.genre_ids,
-                                rating: popularMovie.vote_average,
-                                imgUrl: 'https://image.tmdb.org/t/p/original' + popularMovie.poster_path,
-                                content: popularMovie.overview
+                                id: tmdbMovie.id,
+                                title: tmdbMovie.title,
+                                duration: tmdbMovie.runtime,
+                                categories: tmdbMovie.genres.map((g: any) => g.name + ""),
+                                rating: tmdbMovie.vote_average,
+                                imgUrl: 'https://image.tmdb.org/t/p/original' + tmdbMovie.poster_path,
+                                content: tmdbMovie.overview
                             }
                         )
                     }
@@ -71,15 +72,16 @@ export default function Layout() {
                 let tmdbMovies: DTO.Movie[] = [];
                 if (comingSoonMovies != null) {
                     for (const comingSoonMovie of comingSoonMovies) {
+                        let tmdbMovie: any = await getTmdbMovieById(comingSoonMovie.id);
                         tmdbMovies.push(
                             {
-                                id: comingSoonMovie.id,
-                                title: comingSoonMovie.title,
-                                duration: comingSoonMovie.runtime,
-                                categories: comingSoonMovie.genre_ids,
-                                rating: comingSoonMovie.vote_average,
-                                imgUrl: 'https://image.tmdb.org/t/p/original' + comingSoonMovie.poster_path,
-                                content: comingSoonMovie.overview
+                                id: tmdbMovie.id,
+                                title: tmdbMovie.title,
+                                duration: tmdbMovie.runtime,
+                                categories: tmdbMovie.genres.map((g: any) => g.name + ""),
+                                rating: tmdbMovie.vote_average,
+                                imgUrl: 'https://image.tmdb.org/t/p/original' + tmdbMovie.poster_path,
+                                content: tmdbMovie.overview
                             }
                         )
                     }
@@ -91,20 +93,21 @@ export default function Layout() {
                 let tmdbMovies: DTO.Movie[] = [];
                 if (topRatedMovies != null) {
                     for (const topRatedMovie of topRatedMovies) {
+                        let tmdbMovie: any = await getTmdbMovieById(topRatedMovie.id);
                         tmdbMovies.push(
                             {
-                                id: topRatedMovie.id,
-                                title: topRatedMovie.title,
-                                duration: topRatedMovie.runtime,
-                                categories: topRatedMovie.genre_ids,
-                                rating: topRatedMovie.vote_average,
-                                imgUrl: 'https://image.tmdb.org/t/p/original' + topRatedMovie.poster_path,
-                                content: topRatedMovie.overview
+                                id: tmdbMovie.id,
+                                title: tmdbMovie.title,
+                                duration: tmdbMovie.runtime,
+                                categories: tmdbMovie.genres.map((g: any) => g.name + ""),
+                                rating: tmdbMovie.vote_average,
+                                imgUrl: 'https://image.tmdb.org/t/p/original' + tmdbMovie.poster_path,
+                                content: tmdbMovie.overview
                             }
                         )
                     }
                     setMovies(tmdbMovies);
-                    return;
+                    return tmdbMovies;
                 }
             } else {
                 setMovies(getMockedMovies());

@@ -64,7 +64,7 @@ export default class Navigation extends React.PureComponent<NavigationProps, Nav
                         {
                             name: 'Your Profile',
                             url: '#',
-                            key: 'profile',
+                            key: 'favorites',
                             links: [
                                 {
                                     name: 'Favorites',
