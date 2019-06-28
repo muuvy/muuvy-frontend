@@ -16,10 +16,9 @@ export default function Layout() {
     const user: DTO.User = useContext(UserContext).user;
     const [selectedMovie, setSelectedMovie] = useState<DTO.Movie | null>(null);
     const [movies, setMovies] = useState<DTO.Movie[]>(getMockedMovies());
-    const [pageTitle, setPageTitle] = useState<string>('Popular Movies');
+    const [pageTitle, setPageTitle] = useState<string>('mocked-movies');
 
     async function setMoviesForLink(link: string | undefined) {
-        console.log(link);
         if (link !== undefined) {
             setPageTitle(link);
             if (link === 'favorites') {
@@ -28,7 +27,6 @@ export default function Layout() {
                 if (favorites != null) {
                     for (const favorite of favorites) {
                         let tmdbMovie: any = await getTmdbMovieById(favorite.movieId);
-                        console.log(tmdbMovie);
                         if (tmdbMovie != null) {
                             tmdbMovies.push(
                                 {
