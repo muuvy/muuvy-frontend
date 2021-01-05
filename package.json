@@ -5,7 +5,7 @@
   "homepage": "https://muuvy.ch",
   "dependencies": {
     "@types/react-dom": "16.9.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.1.0",
     "gh-pages": "2.1.1",
     "node-sass": "4.12.0",
